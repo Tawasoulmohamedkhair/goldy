@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:goldy/core/constants/app_colors.dart';
 import 'package:goldy/core/constants/app_images.dart';
-
 import 'package:goldy/core/constants/app_strings.dart';
-import 'package:goldy/core/widgets/app_bar_custom.dart';
 import 'package:goldy/core/widgets/custom_text.dart';
 
-class SliverScreen extends StatelessWidget {
-  const SliverScreen({super.key});
+class GoldScreen extends StatelessWidget {
+  const GoldScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.black,
-      appBar: AppBarCustom(
-        title: AppStrings.silvertracker,
-        color: AppColors.black,
+      appBar: AppBar(
+        title: const Text(AppStrings.goldtracker),
+        centerTitle: true,
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
-            child: Image.asset(AppImages.silverImage, height: 200, width: 200),
+            child: Image.asset(AppImages.goldImage, height: 200, width: 200),
           ),
           CustomText(
-            text: AppStrings.pricesilver,
+            text: AppStrings.pricegold,
             text2: AppStrings.coin,
-            color: AppColors.sliverColor,
+            color: AppColors.goldColor,
           ),
         ],
       ),
