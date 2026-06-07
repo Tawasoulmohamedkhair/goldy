@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:goldy/core/constants/app_colors.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   const AppBarCustom({
     super.key,
     required this.title,
-    required this.color,
     this.color2 = Colors.white,
     this.automaticallyImplyLeading = true,
     this.fontsize = 20,
@@ -12,7 +12,6 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   });
 
   final String title;
-  final Color color;
   final Color color2;
   final double fontsize;
   final FontWeight fontWeight;
@@ -21,7 +20,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: color,
+      backgroundColor: AppColors.navBlue,
       title: Text(
         title,
         style: TextStyle(

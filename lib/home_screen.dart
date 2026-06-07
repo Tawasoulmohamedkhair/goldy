@@ -10,11 +10,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.black,
+      backgroundColor: AppColors.navBlue,
       appBar: AppBarCustom(
         title: AppStrings.appName,
         color2: AppColors.goldColor,
-        color: AppColors.black,
         automaticallyImplyLeading: false,
       ),
 

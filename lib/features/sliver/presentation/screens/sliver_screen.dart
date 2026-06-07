@@ -4,58 +4,56 @@ import 'package:goldy/core/constants/app_colors.dart';
 import 'package:goldy/core/constants/app_strings.dart';
 import 'package:goldy/core/widgets/app_bar_custom.dart';
 import 'package:goldy/core/widgets/metal_details_card.dart';
-import 'package:goldy/features/gold/data/repo/gold_repo.dart';
-import 'package:goldy/features/gold/presentation/cubit/gold_cubit.dart';
+import 'package:goldy/features/sliver/data/repo/sliver_repo.dart';
+import 'package:goldy/features/sliver/presentation/cubit/sliver_cubit.dart';
 
-class GoldScreen extends StatefulWidget {
-  const GoldScreen({super.key});
+class SliverScreen extends StatefulWidget {
+  const SliverScreen({super.key});
 
   @override
-  State<GoldScreen> createState() => _GoldScreenState();
+  State<SliverScreen> createState() => _SliverScreenState();
 }
 
-class _GoldScreenState extends State<GoldScreen> {
-  late final GoldCubit _cubit;
-
+class _SliverScreenState extends State<SliverScreen> {
   @override
   void initState() {
     super.initState();
-    _cubit = GoldCubit(GoldRepo())..getGold();
-  }
 
-  @override
-  void dispose() {
-    _cubit.close();
-    super.dispose();
+    context.read<SliverCubit>().getSliver();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _cubit,
+    return BlocProvider(
+      create: (context) => SliverCubit(SliverRepo())..getSliver(),
       child: Scaffold(
         backgroundColor: AppColors.navBlue,
+
         appBar: AppBarCustom(
-          title: AppStrings.goldtracker,
-          color2: AppColors.goldColor,
+          title: AppStrings.silvertracker,
+          color2: AppColors.sliverColor,
         ),
-        body: BlocBuilder<GoldCubit, GoldState>(
+
+        body: BlocBuilder<SliverCubit, SliverState>(
           builder: (context, state) {
-            if (state is GoldLoadingState) {
+            if (state is SliverLoadingState) {
               return const Center(child: CircularProgressIndicator());
-            } else if (state is GoldError) {
+            }
+
+            if (state is SliverErrorState) {
               return Center(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
                     state.message,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.red, fontSize: 16),
+                    style: const TextStyle(color: Colors.red),
                   ),
                 ),
               );
-            } else if (state is GoldLoadedState) {
-              final data = state.goldModel;
+            }
+
+            if (state is SliverLoadedState) {
+              final data = state.sliverModel;
 
               return MetalDetailsCard(
                 name: data.name,
@@ -63,6 +61,7 @@ class _GoldScreenState extends State<GoldScreen> {
                 symbol: data.symbol,
               );
             }
+
             return const SizedBox();
           },
         ),

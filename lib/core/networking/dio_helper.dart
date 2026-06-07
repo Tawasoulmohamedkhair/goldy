@@ -1,15 +1,29 @@
 import 'package:dio/dio.dart';
+import 'package:goldy/core/networking/api_const.dart';
+import 'package:flutter_pretty_dio_logger/flutter_pretty_dio_logger.dart';
 
 class DioHelper {
   static late Dio dio;
+
   static void init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://api.spoonacular.com/recipes/',
+        baseUrl: ApiConstants.baseUrl,
         receiveDataWhenStatusError: true,
-        connectTimeout: Duration(seconds: 20),
-        receiveTimeout: Duration(seconds: 20),
+        connectTimeout: const Duration(seconds: 20),
+        receiveTimeout: const Duration(seconds: 20),
         headers: {'Content-Type': 'application/json'},
+      ),
+    );
+
+    dio.interceptors.add(
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        error: true,
+        
       ),
     );
   }
@@ -18,7 +32,8 @@ class DioHelper {
     required String endPoint,
     Map<String, dynamic>? queryParameters,
   }) async {
-    final responses = await dio.get(endPoint, queryParameters: queryParameters);
-    return responses;
+    final response = await dio.get(endPoint, queryParameters: queryParameters);
+
+    return response;
   }
 }
