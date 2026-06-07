@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:goldy/core/constants/app_strings.dart';
 import 'package:goldy/core/error/api_failure.dart';
 import 'package:goldy/core/networking/api_const.dart';
 import 'package:goldy/core/networking/dio_helper.dart';
@@ -16,7 +17,7 @@ class SliverRepo {
       final failure = ApiFailure.fromDioException(e);
       return Left(failure.message);
     } catch (e) {
-      return const Left("An unexpected error occurred.");
+      return const Left(AppStrings.error);
     }
   }
 }

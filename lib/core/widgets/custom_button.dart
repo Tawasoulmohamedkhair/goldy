@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:goldy/core/constants/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -30,7 +31,7 @@ class CustomButton extends StatelessWidget {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: Colors.black,
+              color: AppColors.black,
             ),
             textAlign: TextAlign.center,
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:goldy/core/constants/app_colors.dart';
 import 'package:goldy/core/constants/app_strings.dart';
+import 'package:goldy/core/routing/router.dart';
 import 'package:goldy/core/widgets/app_bar_custom.dart';
 import 'package:goldy/core/widgets/custom_button.dart';
 
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           CustomButton(
             text: AppStrings.gold,
             onPressed: () {
-              Navigator.pushNamed(context, '/goldtracker');
+              Navigator.pushNamed(context, AppRoutes.goldtracker);
             },
             color: AppColors.goldColor,
           ),
@@ -32,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           CustomButton(
             text: AppStrings.silver,
             onPressed: () {
-              Navigator.pushNamed(context, '/silvertracker');
+              Navigator.pushNamed(context, AppRoutes.silvertracker);
             },
             color: AppColors.sliverColor,
           ),

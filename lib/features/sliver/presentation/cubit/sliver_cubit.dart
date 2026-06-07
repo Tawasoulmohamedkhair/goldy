@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldy/features/sliver/data/model/sliver_model.dart';
@@ -13,7 +12,10 @@ class SliverCubit extends Cubit<SliverState> {
   Future<void> getSliver() async {
     emit(SliverLoadingState());
     final result = await sliverRepo.getSliver();
+
     result.fold(
-      (error)=> emit(SliverErrorState(error)), (sliverModel) => emit(SliverLoadedState(sliverModel: sliverModel)), );
+      (error) => emit(SliverErrorState(error)),
+      (sliverModel) => emit(SliverLoadedState(sliverModel: sliverModel)),
+    );
   }
 }

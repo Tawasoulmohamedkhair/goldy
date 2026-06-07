@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldy/core/constants/app_colors.dart';
+import 'package:goldy/core/constants/app_images.dart';
 import 'package:goldy/core/constants/app_strings.dart';
 import 'package:goldy/core/widgets/app_bar_custom.dart';
 import 'package:goldy/core/widgets/metal_details_card.dart';
@@ -32,12 +33,15 @@ class _SliverScreenState extends State<SliverScreen> {
         appBar: AppBarCustom(
           title: AppStrings.silvertracker,
           color2: AppColors.sliverColor,
+          color3: AppColors.sliverColor,
         ),
 
         body: BlocBuilder<SliverCubit, SliverState>(
           builder: (context, state) {
             if (state is SliverLoadingState) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator(
+                color: AppColors.sliverColor,
+              ));
             }
 
             if (state is SliverErrorState) {
@@ -46,19 +50,20 @@ class _SliverScreenState extends State<SliverScreen> {
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
                     state.message,
-                    style: const TextStyle(color: Colors.red),
+                    style: const TextStyle(color: AppColors.red),
                   ),
                 ),
               );
             }
 
             if (state is SliverLoadedState) {
-              final data = state.sliverModel;
+             final data = state.sliverModel;
 
               return MetalDetailsCard(
+                image: AppImages.silverImage,
+                color: AppColors.sliverColor,
                 name: data.name,
                 price: data.price,
-                symbol: data.symbol,
               );
             }
 

@@ -6,4 +6,5 @@ class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color white = Colors.white;
   static const Color navBlue = Color(0xff111827);
+  static const Color red = Colors.red;
 }

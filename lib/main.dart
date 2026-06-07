@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:goldy/core/constants/app_strings.dart';
 import 'package:goldy/core/networking/dio_helper.dart';
 import 'package:goldy/core/routing/app_routes.dart';
 import 'package:goldy/core/routing/router.dart';
@@ -17,8 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'GOLDY',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      title: AppStrings.appName,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
       initialRoute: AppRoutes.home,
       onGenerateRoute: AppRouter().generateRoute,
     );

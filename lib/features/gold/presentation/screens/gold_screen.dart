@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldy/core/constants/app_colors.dart';
+import 'package:goldy/core/constants/app_images.dart';
 import 'package:goldy/core/constants/app_strings.dart';
 import 'package:goldy/core/widgets/app_bar_custom.dart';
 import 'package:goldy/core/widgets/metal_details_card.dart';
@@ -38,11 +39,14 @@ class _GoldScreenState extends State<GoldScreen> {
         appBar: AppBarCustom(
           title: AppStrings.goldtracker,
           color2: AppColors.goldColor,
+          color3: AppColors.goldColor,
         ),
         body: BlocBuilder<GoldCubit, GoldState>(
           builder: (context, state) {
             if (state is GoldLoadingState) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator(
+                color: AppColors.goldColor,
+              ));
             } else if (state is GoldError) {
               return Center(
                 child: Padding(
@@ -50,7 +54,7 @@ class _GoldScreenState extends State<GoldScreen> {
                   child: Text(
                     state.message,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.red, fontSize: 16),
+                    style: const TextStyle(color: AppColors.red, fontSize: 16),
                   ),
                 ),
               );
@@ -58,10 +62,9 @@ class _GoldScreenState extends State<GoldScreen> {
               final data = state.goldModel;
 
               return MetalDetailsCard(
-                name: data.name,
-                price: data.price,
-                symbol: data.symbol,
-              );
+                image: AppImages.goldImage,
+                color: AppColors.goldColor,
+                name: data.name, price: data.price);
             }
             return const SizedBox();
           },

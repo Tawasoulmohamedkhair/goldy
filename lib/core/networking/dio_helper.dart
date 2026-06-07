@@ -23,7 +23,6 @@ class DioHelper {
         responseBody: true,
         responseHeader: false,
         error: true,
-        
       ),
     );
   }
