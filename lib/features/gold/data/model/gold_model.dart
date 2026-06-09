@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class GoldModel  extends Equatable {
+class GoldModel extends Equatable {
   final String name;
   final num price;
   final String symbol;
@@ -24,5 +24,11 @@ class GoldModel  extends Equatable {
   }
 
   @override
-  List<Object?> get props => [name, price, symbol, updatedAt, updatedAtReadable];
+  List<Object?> get props => [
+    name,
+    price,
+    symbol,
+    updatedAt,
+    updatedAtReadable,
+  ];
 }

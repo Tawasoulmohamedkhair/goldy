@@ -7,14 +7,23 @@ part 'gold_state.dart';
 
 class GoldCubit extends Cubit<GoldState> {
   final GoldRepo goldRepo;
-  GoldCubit(this.goldRepo) : super(GoldInitialState ());
+
+  GoldCubit(this.goldRepo) : super(GoldInitialState());
 
   Future<void> getGold() async {
+
     emit(GoldLoadingState());
+
     final result = await goldRepo.getGold();
+
+
     result.fold(
-      (error) => emit(GoldError(error)),
-      (goldModel) => emit(GoldLoadedState(goldModel: goldModel)),
+      (error) {
+        emit(GoldError(error));
+      },
+      (goldModel) {
+        emit(GoldLoadedState(goldModel: goldModel));
+      },
     );
   }
 }
