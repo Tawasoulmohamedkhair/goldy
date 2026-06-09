@@ -14,7 +14,7 @@ The app separates UI, business logic, and data layers using Clean Architecture w
 
 ## 📱 Screenshots
 
-![Goldy Mockup](assets/screenshots/goldy.png)
+![Goldy Mockup](assets/screenshot/goldy.png)
 
 ## 🎥 Demo
 
