@@ -1,16 +1,13 @@
-# goldy
+# 🥇 Goldy App
 
-A new Flutter project.
+Goldy App
 
-## Getting Started
+Goldy is a Flutter application for tracking real-time gold and silver prices. It uses API data integration with a clean and scalable architecture for better maintainability and future enhancements.
 
-This project is a starting point for a Flutter application.
+Home Screen: Displays live gold and silver prices with a clean and dynamic UI.
 
-A few resources to get you started if this is your first Flutter project:
+Gold Details Screen: Shows detailed gold price information with responsive design.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Silver Details Screen: Shows silver price information with clear and structured layout.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The app separates UI, business logic, and data layers using Clean Architecture with Cubit state management.
