@@ -54,6 +54,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/screenshot/
 flutter_native_splash:
   color: "#1B263B"
   color_dark: "#111827"
