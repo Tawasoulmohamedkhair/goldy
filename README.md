@@ -11,3 +11,11 @@ Gold Details Screen: Shows detailed gold price information with responsive desig
 Silver Details Screen: Shows silver price information with clear and structured layout.
 
 The app separates UI, business logic, and data layers using Clean Architecture with Cubit state management.
+
+## 📱 Screenshots
+
+<img src="assets\screenshot\GOLDY App.png width="250"/>
+
+## 🎥 Demo
+
+![App Demo](assets\screenshot\goldy.gif)
