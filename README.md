@@ -14,7 +14,7 @@ The app separates UI, business logic, and data layers using Clean Architecture w
 
 ## 📱 Screenshots
 
-<img src="assets/screenshot/GOLDY.png width="250"/>
+!(assets/screenshots/GOLDY App.png)
 
 ## 🎥 Demo
 
