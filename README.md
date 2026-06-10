@@ -10,7 +10,7 @@ Gold Details Screen: Shows detailed gold price information with responsive desig
 
 Silver Details Screen: Shows silver price information with clear and structured layout.
 
-The app separates UI, business logic, and data layers using Clean Architecture with Cubit state management.
+The app separates UI, business logic, and data layers using MVVM architecture with Cubit state management.
 
 ## 📱 Screenshots
 
